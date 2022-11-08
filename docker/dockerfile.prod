@@ -1,0 +1,19 @@
+FROM python:3.11.0-slim-bullseye
+LABEL maintainer="chichi13"
+
+RUN apt-get update -y && apt-get upgrade -y && \
+    rm -rf /var/lib/apt/lists/* && \
+    pip install --upgrade pip && useradd -ms /bin/bash app
+
+USER app
+WORKDIR /home/app/fast-api
+
+ENV PATH="/home/app/.local/bin:${PATH}"
+
+COPY --chown=app:app requirements/ requirements/
+RUN pip install --user --no-cache-dir -r requirements/prod.txt
+
+COPY --chown=app:app app/ app/
+
+EXPOSE 8000
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0"]
