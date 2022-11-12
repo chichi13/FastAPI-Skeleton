@@ -19,5 +19,4 @@ def _modules(postfix="") -> list:
 
 
 def detect_models():
-    # Import the models (url_converter requires it)
     _modules(".models")
