@@ -27,6 +27,10 @@ class Config(BaseSettings):
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
     PROJECT_NAME: str | None = "FastAPI app template"
 
+    SENTRY_ENABLED: bool | None = False
+    SENTRY_DSN: str | None = ""
+    SENTRY_ENV: str | None = "dev"
+
     DATABASE_USER: str = "app"
     DATABASE_PASSWORD: str = "password"
     DATABASE_URL: str = "127.0.0.1"

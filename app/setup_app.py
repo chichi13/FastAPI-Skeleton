@@ -1,3 +1,4 @@
+import sentry_sdk
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
@@ -10,12 +11,21 @@ def create_app() -> FastAPI:
         title=settings.PROJECT_NAME,
         version=settings.APP_VERSION,
         docs_url=None if settings.is_prod() else "/docs",
-        redoc_url=None if settings.is_prod() == "prod" else "/redoc",
+        redoc_url=None if settings.is_prod() else "/redoc",
         openapi_url=f"{settings.API_V1_STR}/openapi.json",
     )
     setup_routers(app)
     setup_middlewares(app)
     return app
+
+
+def setup_sentry():
+    if settings.SENTRY_ENABLED:
+        sentry_sdk.init(
+            dsn=settings.SENTRY_DSN,
+            environment=settings.SENTRY_ENV,
+            traces_sample_rate=1.0,
+        )
 
 
 def setup_routers(app: FastAPI) -> None:
