@@ -9,6 +9,7 @@
 - Basic mixins for future database model (**PrimaryKeyMixin**/**TimestampsMixin**)
 - **Alembic** ready with good naming convention
 - **Health** endpoint to check if database is healthy
+- **Sentry integration** is available by enabling `SENTRY_ENABLED` in `.env` file (`SENTRY_DSN` is required, `SENTRY_ENVIRONMENT` is optional)
 
 ## Installation
 
@@ -23,7 +24,7 @@
 - Add this route to `app/routes.py` :
 
 ```python
-_include_unsecured_router(admin_router, tags=["Admin"])
+api_router.include_router(admin_router, tags=["Admin"])
 ```
 
 **To add a model, do this :**
