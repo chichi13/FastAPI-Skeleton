@@ -16,6 +16,7 @@ def create_app() -> FastAPI:
     )
     setup_routers(app)
     setup_middlewares(app)
+    setup_sentry()
     return app
 
 
