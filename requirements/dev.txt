@@ -1,5 +1,5 @@
 -r common.txt
-black==22.12.0
+black==23.1.0
 flake8==6.0.0
 flake8-print==5.0.0
 flake8-super==0.1.3
