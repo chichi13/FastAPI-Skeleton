@@ -1,9 +1,9 @@
 -r common.txt
-black==22.12.0
+black==23.3.0
 flake8==6.0.0
 flake8-print==5.0.0
 flake8-super==0.1.3
 flake8-tidy-imports==4.8.0
-isort==5.11.4
 alembic==1.10.4
-locust==2.14.2
+isort==5.12.0
+locust==2.15.1
