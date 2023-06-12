@@ -1,4 +1,4 @@
-FROM python:3.11.3-slim-bullseye
+FROM python:3.11.4-slim-bullseye
 LABEL maintainer="chichi13"
 
 RUN apt-get update -y && apt-get upgrade -y && \
