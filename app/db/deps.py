@@ -1,16 +1,19 @@
-from typing import AsyncIterator
+from typing import Iterator
 
 from sqlalchemy import Column, ForeignKey, Integer, Table
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.base import Base
-from app.db.session import async_session
+from app.db.session import SessionLocal
 
 
-async def get_db() -> AsyncIterator[AsyncSession]:
-    async with async_session() as db:
+def get_db() -> Iterator[SessionLocal]:
+    db = SessionLocal()
+
+    try:
         yield db
-
+    finally:
+        db.close()
 
 def reference_col(
     tablename: str,
