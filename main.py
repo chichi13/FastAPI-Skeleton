@@ -1,5 +1,6 @@
-from app.core.logger import logger
-from app.setup_app import create_app, settings
+from app.setup_app import create_app
+from app.utils.config import settings
+from app.utils.logger import logger
 
 app = create_app()
 

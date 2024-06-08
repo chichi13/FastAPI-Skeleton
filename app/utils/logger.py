@@ -1,6 +1,6 @@
 import logging
 
-from app.core.config import settings
+from app.utils.config import settings
 
 formatter = "%(levelname)s: %(asctime)s - %(module)s - %(funcName)s - %(message)s"
 

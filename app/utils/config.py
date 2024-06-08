@@ -1,8 +1,6 @@
 from enum import Enum
-from typing import List
 
-from pydantic import BaseSettings
-from pydantic.networks import AnyHttpUrl
+from pydantic_settings import BaseSettings
 
 
 class AppEnvironment(str, Enum):
@@ -16,7 +14,7 @@ class Config(BaseSettings):
     Base configuration.
     """
 
-    API_V1_STR = "/api/v1"
+    API_V1_STR: str = "/api/v1"
 
     APP_VERSION: str = "Unversioned API"
     FASTAPI_ENV: AppEnvironment = AppEnvironment.PRODUCTION
@@ -24,7 +22,7 @@ class Config(BaseSettings):
     UVICORN_HOST: str = "0.0.0.0"
     UVICORN_PORT: int = 8000
 
-    BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
+    BACKEND_CORS_ORIGINS: str = ""
     PROJECT_NAME: str | None = "FastAPI app template"
 
     SENTRY_ENABLED: bool | None = False

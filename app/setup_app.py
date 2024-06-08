@@ -2,8 +2,9 @@ import sentry_sdk
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from app.core.config import settings
 from app.routes import api_router
+from app.utils.config import settings
+from app.utils.logger import logger
 
 
 def create_app() -> FastAPI:
@@ -44,6 +45,8 @@ def setup_middlewares(app) -> None:
         for origin in origins_raw:
             use_origin = origin.strip()
             origins.append(use_origin)
+
+        logger.info(f"Allowed CORS origins: {origins}")
 
         app.add_middleware(
             CORSMiddleware,
