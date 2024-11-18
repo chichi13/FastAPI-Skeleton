@@ -5,7 +5,7 @@
 Create `.env` file in root directory :
 
 ```text
-FASTAPI_ENV=development
+ENV=development
 
 PROJECT_NAME=FastAPI Skeleton
 APP_VERSION=1.0.0
