@@ -3,7 +3,7 @@ fastapi==0.115.5
 uvicorn==0.32.0
 asyncpg==0.30.0
 pydantic-settings==2.6.1
-pydantic[dotenv]==2.9.2
+pydantic[dotenv]==2.10.1
 requests==2.32.3
 sentry-sdk==2.18.0
 psycopg2==2.9.10
