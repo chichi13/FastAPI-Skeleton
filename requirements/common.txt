@@ -1,4 +1,4 @@
-SQLAlchemy==2.0.36
+SQLAlchemy==2.0.37
 fastapi==0.115.5
 uvicorn==0.32.0
 asyncpg==0.30.0
